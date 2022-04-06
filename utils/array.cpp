@@ -1,6 +1,6 @@
 
 template <typename T, int N>
-int ArrayLength(T (&my_array)[N])
+constexpr int ArrayLength(const T (&)[N])
 {
     return N;
 }
