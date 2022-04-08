@@ -1,41 +1,17 @@
 #include <iostream>
 
-#include "utils/console.cpp"
+#include "chop1.cpp"
+#include "chop2.cpp"
 
 int const sortedArray[]{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541};
 
-template <int TLength>
-int chop1(int number, int const (&arrayRef)[TLength])
-{
-    int minIndex = 0;
-    int maxIndex = TLength - 1;
-
-    while (minIndex != maxIndex)
-    {
-        int currentIndex = (minIndex + maxIndex) / 2 == currentIndex ? currentIndex + 1 : (minIndex + maxIndex) / 2;
-
-        int current = arrayRef[currentIndex];
-
-        if (current == number)
-            return currentIndex; // encontrou!
-
-        if (number < current)
-        {
-            maxIndex = currentIndex; // antes
-            continue;
-        }
-
-        minIndex = currentIndex; // depois
-    }
-
-    return -1;
-}
-
 int main()
 {
-    int index = chop1(2, sortedArray);
+    //     int index = chop1(3, sortedArray);
+    //     std::cout << index << std::endl;
 
-    Console::WriteLine(index);
+    int index = chop2(3, sortedArray);
+    std::cout << index << std::endl;
 
     return 0;
 }
