@@ -1,6 +1,5 @@
-
 template <int TLength>
-int chop1(int number, int const (&arrayRef)[TLength])
+int chop1(int const number, int const (&arrayRef)[TLength])
 {
     int minIndex = 0;
     int maxIndex = TLength - 1;
@@ -9,12 +8,10 @@ int chop1(int number, int const (&arrayRef)[TLength])
     {
         int currentIndex = (minIndex + maxIndex) / 2;
 
-        int current = arrayRef[currentIndex];
-
-        if (current == number)
+        if (number == arrayRef[currentIndex])
             return currentIndex; // encontrou!
 
-        if (number < current)
+        if (number < arrayRef[currentIndex])
         {
             maxIndex = currentIndex - 1; // antes
             continue;
